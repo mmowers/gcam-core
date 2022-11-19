@@ -246,23 +246,17 @@ double CapacityLimitBackupCalculator::getMarginalBackupCapacityFraction( const s
     assert( !aRegion.empty() );
 
     double renewElecShare = std::min( SectorUtils::getTrialSupply( aRegion, aSector, aPeriod ), 1.0 );
-    
-    // No backup required for zero share.
-    if( renewElecShare < util::getVerySmallNumber() ){
-        return 0;
-    }
 
-    // Capacity limit must be between 0 and 1 inclusive.
-    assert( mCapacityLimit >= 0 && mCapacityLimit <= 1 );
-    
     // Calculate the marginal backup requirement at this share of the total.
     double backupCapacity;
-    double xmid = mCapacityLimit;
+    double valueFactor;
 
-    double capacityRatio = aAverageGridCapacityFactor / aTechCapacityFactor;
-    double capacityShare = renewElecShare * capacityRatio;
-    
-    backupCapacity = mFmax / ( 1.0 + exp( mC * ( xmid - capacityShare ) / mTau ) );
+    // MRM: Value factor (VF) depends on market share, and the eventual additive adjustment
+    // to tech cost is tech_cost*(1/VF - 1). We're calling (1/VF - 1) "backupCapacity".
+    //Make sure value factor stays positive, or else backupCapacity itself could go negative.
+    valueFactor = std::max( ( 0.945 - 1.326 * renewElecShare ), 0.00001 );
+
+    backupCapacity = ( 1 / valueFactor ) - 1;
 
     // This returned value is in terms of fraction of backup capacity per capacity
     // of intermittent sector capacity (e.g., GW/GW)
