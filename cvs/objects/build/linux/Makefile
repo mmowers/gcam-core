@@ -1,6 +1,20 @@
 # Top level Makefile for MiniCAM
 # William.Gustafson@pnl.gov; 9-Sep-2008
 
+export CXX=g++
+export USRLIB=/usr/lib/x86_64-linux-gnu
+export BOOST_LIB=${USRLIB}
+export BOOST_INCLUDE=/usr/include/boost
+export BOOSTLIB=${BOOST_LIB}
+export BOOSTROOT=${BOOST_INCLUDE}
+export JAVA_INCLUDE=/usr/lib/jvm/default-java/include
+export JAVA_LIB=/usr/lib/jvm/default-java/lib/server
+export GCAMDIR=/home/mmowers/GCAM/gcam-core
+export JARS_LIB=${GCAMDIR}/libs/jars/*
+export EIGEN_INCLUDE=${GCAMDIR}/libs/eigen
+export TBB_INCLUDE=/usr/include/tbb
+export TBB_LIB=${USRLIB}
+
 ## pointer back to build directory for subsidiary makefiles
 export BUILDPATH = $(PWD)
 ## Load system-specific paths
