@@ -1,11 +1,15 @@
 import pandas as pd
 from pdb import set_trace as b
+import os
 
 results_folder = '/home/mmowers/GCAM/run_results_2023-03-07'
+outputs_folder = f'{results_folder}/csv_results'
+os.mkdir(outputs_folder)
 scens = ['core','plcoe']
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
 for scen in scens:
-    df = pd.read_csv(f'queryout_{scen}.csv', header=None, sep='\n')
+    print(f'Gathering results from {scen}')
+    df = pd.read_csv(f'{results_folder}/queryout_{scen}.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True) #Unfortunately the raw data has [scenario],[date] in the "scenario" column. See HACK below
     df_nm = df[df[1].isnull()][0].copy() #series of table names and associated index
     df_nm[len(df)] = 'end' #Add the index of the end of the dataframe
@@ -36,5 +40,6 @@ for scen in scens:
         concat_dct[name].append(df_res)
 
 for name in concat_dct:
+    print(f'Outputting {name}')
     output = pd.concat(concat_dct[name], ignore_index=True)
-    output.to_csv(f'{results_folder}/{name}.csv', index=False)
+    output.to_csv(f'{outputs_folder}/{name}.csv', index=False)
