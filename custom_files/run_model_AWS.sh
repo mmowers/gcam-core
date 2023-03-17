@@ -1,10 +1,12 @@
 #!/bin/bash
 
+#Run this from the terminal with 'nohup run_model_AWS.sh &'
+
 # User variables, could make these into inputs
-GIT_REPO=mmowers/gcam-core #must be publicly accessible
+GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
 GIT_BRANCH=plcoe_run
-GCAM_CONFIG=configuration_ref
-XMLDB=xmldb_batch
+GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
+XMLDB=xmldb_batch #This .xml file must be present in exe/
 
 git clone -b $GIT_BRANCH https://github.com/$GIT_REPO.git gcam
 cd gcam/cvs/objects/climate/source
