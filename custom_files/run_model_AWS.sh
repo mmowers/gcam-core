@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Run this from the terminal with 'nohup run_model_AWS.sh &'
+#Run this from the terminal with 'nohup ./run_model_AWS.sh &'
 #After running, you can follow the output with 'tail -f nohup.out'
 
 # User variables, could make these into inputs
