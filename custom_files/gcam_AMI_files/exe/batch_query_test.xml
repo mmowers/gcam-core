@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+   
+
+      <aQuery>
+            <region name="USA" />
+            <region name="Africa_Eastern" />
+            <region name="Africa_Northern" />
+            <region name="Africa_Southern" />
+            <region name="Africa_Western" />
+            <region name="Australia_NZ" />
+            <region name="Brazil" />
+            <region name="Canada" />
+            <region name="Central America and Caribbean" />
+            <region name="Central Asia" />
+            <region name="China" />
+            <region name="EU-12" />
+            <region name="EU-15" />
+            <region name="Europe_Eastern" />
+            <region name="Europe_Non_EU" />
+            <region name="European Free Trade Association" />
+            <region name="India" />
+            <region name="Indonesia" />
+            <region name="Japan" />
+            <region name="Mexico" />
+            <region name="Middle East" />
+            <region name="Pakistan" />
+            <region name="Russia" />
+            <region name="South Africa" />
+            <region name="South America_Northern" />
+            <region name="South America_Southern" />
+            <region name="South Asia" />
+            <region name="South Korea" />
+            <region name="Southeast Asia" />
+            <region name="Taiwan" />
+            <region name="Argentina" />
+            <region name="Colombia" />
+
+         <supplyDemandQuery title="costs by tech and input">
+            <axis1 name="technology">technology</axis1>
+            <axis2 name="Year">price-paid[@vintage]</axis2>
+            <xPath buildList="true" dataName="fuel cost" group="false" sumAll="false">*[@type = 'sector']/*[@type = 'subsector']/*[@type = 'technology']/
+            *[@type='input']/price-paid[@vintage=parent::*/parent::*/@year]/text()</xPath>
+            <comments>excludes energy and emissions related costs which are not printed</comments>
+         </supplyDemandQuery>
+
+      </aQuery>
+
+      <aQuery>
+            <region name="USA" />
+            <region name="Africa_Eastern" />
+            <region name="Africa_Northern" />
+            <region name="Africa_Southern" />
+            <region name="Africa_Western" />
+            <region name="Australia_NZ" />
+            <region name="Brazil" />
+            <region name="Canada" />
+            <region name="Central America and Caribbean" />
+            <region name="Central Asia" />
+            <region name="China" />
+            <region name="EU-12" />
+            <region name="EU-15" />
+            <region name="Europe_Eastern" />
+            <region name="Europe_Non_EU" />
+            <region name="European Free Trade Association" />
+            <region name="India" />
+            <region name="Indonesia" />
+            <region name="Japan" />
+            <region name="Mexico" />
+            <region name="Middle East" />
+            <region name="Pakistan" />
+            <region name="Russia" />
+            <region name="South Africa" />
+            <region name="South America_Northern" />
+            <region name="South America_Southern" />
+            <region name="South Asia" />
+            <region name="South Korea" />
+            <region name="Southeast Asia" />
+            <region name="Taiwan" />
+            <region name="Argentina" />
+            <region name="Colombia" />
+      
+      
+      <supplyDemandQuery title="building floorspace">
+              <axis1 name="building">gcam-consumer[@name]</axis1>
+              <axis2 name="Year">floorspace[@year]</axis2>
+              <xPath buildList="true" dataName="floorspace"
+                  group="false" sumAll="false">gcam-consumer//floorspace/node()</xPath>
+              <comments/>
+          </supplyDemandQuery>
+          
+      
+            </aQuery>
+      
+    
+      <aQuery>
+            <region name="USA" />
+            <region name="Africa_Eastern" />
+            <region name="Africa_Northern" />
+            <region name="Africa_Southern" />
+            <region name="Africa_Western" />
+            <region name="Australia_NZ" />
+            <region name="Brazil" />
+            <region name="Canada" />
+            <region name="Central America and Caribbean" />
+            <region name="Central Asia" />
+            <region name="China" />
+            <region name="EU-12" />
+            <region name="EU-15" />
+            <region name="Europe_Eastern" />
+            <region name="Europe_Non_EU" />
+            <region name="European Free Trade Association" />
+            <region name="India" />
+            <region name="Indonesia" />
+            <region name="Japan" />
+            <region name="Mexico" />
+            <region name="Middle East" />
+            <region name="Pakistan" />
+            <region name="Russia" />
+            <region name="South Africa" />
+            <region name="South America_Northern" />
+            <region name="South America_Southern" />
+            <region name="South Asia" />
+            <region name="South Korea" />
+            <region name="Southeast Asia" />
+            <region name="Taiwan" />
+            <region name="Argentina" />
+            <region name="Colombia" />
+      
+      <supplyDemandQuery title="transport service output by service">
+         <axis1 name="final-demand">final-demand</axis1>
+         <axis2 name="Year">service</axis2>
+         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='final-demand' and contains(@name,'trn_')]/service/text()</xPath>
+         <comments/>
+      </supplyDemandQuery>
+      
+      </aQuery>
+      
+
+</queries>
