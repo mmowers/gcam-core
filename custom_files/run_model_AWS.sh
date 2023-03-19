@@ -9,7 +9,7 @@ GIT_BRANCH=plcoe_run
 GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
 XMLDB=xmldb_batch #This .xml file must be present in exe/
 
-git clone -b $GIT_BRANCH https://github.com/$GIT_REPO.git gcam
+git clone -b ${GIT_BRANCH} https://github.com/${GIT_REPO}.git gcam
 cd gcam/cvs/objects/climate/source
 git clone -b gcam-integration https://github.com/JGCRI/hector.git hector
 cd /home/ec2-user/gcam
@@ -28,7 +28,7 @@ export BOOST_INCLUDE=/home/ec2-user/GcamLibraries/boost_1_77_zt1/include
 make gcam -j 12
 make xml
 cd exe/
-./gcam.exe -C $GCAM_CONFIG.xml
+./gcam.exe -C ${GCAM_CONFIG}.xml
 CLASSPATH=/home/ec2-user/GcamLibraries/jars-6*:/home/ec2-user/ModelInterface-v6/ModelInterface.jar
-java -cp $CLASSPATH ModelInterface/InterfaceMain -b $XMLDB.xml
+java -cp ${CLASSPATH} ModelInterface/InterfaceMain -b ${XMLDB}.xml
 
