@@ -5,7 +5,7 @@
 
 # User variables, could make these into inputs
 GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
-GIT_BRANCH=plcoe_run
+GIT_BRANCH=core_run
 GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
 XMLDB=xmldb_batch #This .xml file must be present in exe/
 
