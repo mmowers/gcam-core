@@ -5,7 +5,13 @@ import os
 results_folder = '/home/mmowers/GCAM/run_results_2023-03-07'
 outputs_folder = f'{results_folder}/csv_results'
 os.mkdir(outputs_folder)
-scens = ['core','plcoe']
+scens = ['ref_core','ref_plcoe', 'lowcarb_core', 'lowcarb_plcoe']
+filters = {
+    'inputs by tech': {'sector':['electricity']},
+    'prices of all markets': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
+    'costs by tech and input': {'sector':['electricity']},
+    'elec gen costs by tech': {'sector':['electricity']},
+}
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
 for scen in scens:
     print(f'Gathering results from {scen}')
@@ -32,6 +38,10 @@ for scen in scens:
         #Remove columns that are named None or empty strings
         cols = [c for c in cols if c not in ['',None]]
         df_res = df_res[cols].copy()
+        #filter to only desired data
+        if name in filters:
+            for key,val in filters[name].items():
+                df_res = df_res[df_res[key].isin(val)].copy()
         #Add the scenario name we'll be using in outputs
         df_res['scen_name'] = scen
         #melt the years
