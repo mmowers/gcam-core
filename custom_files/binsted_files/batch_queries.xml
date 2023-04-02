@@ -114,4 +114,60 @@
                 <comments/>
             </supplyDemandQuery>
     </aQuery>
+    <aQuery>
+      <region name = "USA"/>
+        <ClimateQuery title="total climate forcing">
+            <axis1 name="forcing-total">none</axis1>
+            <axis2 name="Year">forcing-total[@year]</axis2>
+            <xPath buildList="true" dataName="forcing-total" group="false" sumAll="false">climate-model/forcing-total/text()</xPath>
+            <comments/>
+        </ClimateQuery>
+    </aQuery>
+    <aQuery>
+      <region name = "USA"/>
+        <ClimateQuery title="global mean temperature">
+            <axis1 name="temperature">none</axis1>
+            <axis2 name="Year">global-mean-temperature[@year]</axis2>
+            <xPath buildList="true" dataName="global-mean-temperature" group="false" sumAll="false">climate-model/global-mean-temperature/text()</xPath>
+            <comments/>
+        </ClimateQuery>
+    </aQuery>
+    <aQuery>
+        <all-regions/>
+        <marketQuery title="CO2 prices">
+            <axis1 name="market">market</axis1>
+            <axis2 name="Year">market</axis2>
+            <xPath buildList="true" dataName="price" group="false" sumAll="false">Marketplace/market[true() and contains(@name,'CO2')]/price/node()</xPath>
+            <comments/>
+        </marketQuery>
+    </aQuery>
+    <aQuery>
+        <all-regions/>
+            <emissionsQueryBuilder title="CO2 emissions by region">
+                <axis1 name="region">region</axis1>
+                <axis2 name="Year">emissions</axis2>
+                <xPath buildList="true" dataName="emissions" group="false" sumAll="false">*[@type = 'sector' (:collapse:) or @type = 'resource' (:collapse:)](: / *[@type = 'subresource' (: collapse :)] :)//*[((@name='CO2'))]/emissions/node()</xPath>
+                <comments/>
+            </emissionsQueryBuilder>
+    </aQuery>
+    <aQuery>
+        <all-regions/>
+            <emissionsQueryBuilder title="CO2 emissions by sector">
+                <axis1 name="sector">sector</axis1>
+                <axis2 name="Year">emissions</axis2>
+                <xPath buildList="true" dataName="emissions" group="false" sumAll="false">*[@type='sector']//CO2/emissions/node()</xPath>
+                <comments/>
+            </emissionsQueryBuilder>
+    </aQuery>
+    <aQuery>
+        <all-regions/>
+                <supplyDemandQuery title="elec share-weights by subsector">
+                    <axis1 name="subsector">subsector</axis1>
+                    <axis2 name="Year">share-weight</axis2>
+                    <xPath buildList="true" dataName="price" group="false" sumAll="false">*[@type='sector' and (@name='electricity' or @name='elect_td_bld')]/
+               *[@type='subsector' and not (@name='elect_td_bld')]/
+               share-weight/text()</xPath>
+                    <comments/>
+                </supplyDemandQuery>
+    </aQuery>
 </queries>
