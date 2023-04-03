@@ -6,8 +6,6 @@
 # User variables, could make these into inputs
 GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
 GIT_BRANCH=core_run
-GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
-XMLDB=xmldb_batch #This .xml file must be present in exe/
 
 git clone -b ${GIT_BRANCH} https://github.com/${GIT_REPO}.git gcam
 cd gcam/cvs/objects/climate/source
@@ -28,7 +26,11 @@ export BOOST_INCLUDE=/home/ec2-user/GcamLibraries/boost_1_77_zt1/include
 make gcam -j 12
 make xml
 cd exe/
+
+GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
 ./gcam.exe -C ${GCAM_CONFIG}.xml
+
+XMLDB=xmldb_batch #This .xml file must be present in exe/
 CLASSPATH=/home/ec2-user/GcamLibraries/jars-6*:/home/ec2-user/ModelInterface-v6/ModelInterface.jar
 java -cp ${CLASSPATH} ModelInterface/InterfaceMain -b ${XMLDB}.xml
 
