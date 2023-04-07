@@ -1,0 +1,161 @@
+{
+  "fileNames": [
+    "elec gen by gen tech.csv",
+    "elec gen costs by tech.csv",
+    "prices of all markets.csv",
+    "costs by tech and input.csv"
+  ],
+  "dashboards": [
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "bar",
+              "agg": "sum",
+              "filter": {},
+              "x": "year",
+              "name": "subsector",
+              "row": "Units",
+              "col": "scen_name",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1000",
+            "Plot Height (px)": "400",
+            "Plot Title": "World"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "bar",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                }
+              },
+              "x": "year",
+              "name": "technology",
+              "row": "Units",
+              "col": "scen_name",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1000",
+            "Plot Height (px)": "400",
+            "Plot Title": "USA"
+          }
+        }
+      ],
+      "title": "Electricity Generation",
+      "description": "In Lowcarb cases, Gen III grows more than PV/wind in the US. Do they compete in separate markets somehow?"
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen costs by tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                },
+                "technology": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "Gen_III",
+                    "PV",
+                    "coal (IGCC)",
+                    "coal (conv pul)",
+                    "gas (CC CCS)",
+                    "gas (CC)",
+                    "wind"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "col": "technology",
+              "explode": "region",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Y Max": "15",
+            "Y Min": "0",
+            "Plot Width (px)": "1000"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "costs by tech and input.csv",
+              "type": "bar",
+              "agg": "sum",
+              "filter": {
+                "technology": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "Gen_III",
+                    "PV",
+                    "coal (IGCC)",
+                    "coal (conv pul)",
+                    "gas (CC CCS)",
+                    "gas (CC)",
+                    "wind"
+                  ]
+                },
+                "region": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "USA"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "input",
+              "row": "scen_name",
+              "col": "technology",
+              "explode": "region",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1100",
+            "Plot Height (px)": "600"
+          }
+        }
+      ],
+      "title": "Costs by Tech",
+      "description": "- Gen III seems more expensive, why are we building so much in the US?<br><br>-VRE vs gas/coal costs are very different in ReEDS, also <a href=\"https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf\" target=\"_blank\">EIA AEO</a>..."
+    }
+  ],
+  "include_cols": [
+    "year",
+    "subsector",
+    "Units",
+    "value",
+    "scen_name",
+    "region",
+    "technology",
+    "input",
+    "market"
+  ],
+  "filter": {
+    "year": {
+      "filter_type": "greater-or-equal",
+      "filter_val": "2020"
+    }
+  }
+}
