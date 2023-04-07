@@ -1,9 +1,17 @@
 {
   "fileNames": [
+    "CO2 emissions by region.csv",
+    "CO2 emissions by sector.csv",
+    "CO2 prices.csv",
+    "costs by tech and input.csv",
     "elec gen by gen tech.csv",
+    "elec gen by gen tech and cooling tech (new).csv",
     "elec gen costs by tech.csv",
+    "elec share-weights by subsector.csv",
+    "global mean temperature.csv",
+    "inputs by tech.csv",
     "prices of all markets.csv",
-    "costs by tech and input.csv"
+    "total climate forcing.csv"
   ],
   "dashboards": [
     {
@@ -41,7 +49,7 @@
                 }
               },
               "x": "year",
-              "name": "technology",
+              "name": "subsector",
               "row": "Units",
               "col": "scen_name",
               "y": "value"
@@ -55,7 +63,7 @@
         }
       ],
       "title": "Electricity Generation",
-      "description": "In Lowcarb cases, Gen III grows more than PV/wind in the US. Do they compete in separate markets somehow?"
+      "description": ""
     },
     {
       "charts": [
@@ -138,7 +146,121 @@
         }
       ],
       "title": "Costs by Tech",
-      "description": "- Gen III seems more expensive, why are we building so much in the US?<br><br>-VRE vs gas/coal costs are very different in ReEDS, also <a href=\"https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf\" target=\"_blank\">EIA AEO</a>..."
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec share-weights by subsector.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                }
+              },
+              "x": "year",
+              "name": "subsector",
+              "col": "scen_name",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "600"
+          }
+        }
+      ],
+      "title": "Share weights USA",
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "CO2 emissions by region.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Plot Title": "Global CO2 Emissions"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "CO2 prices.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "market": {
+                  "filter_type": "select",
+                  "filter_val": "USACO2"
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Title": "Carbon Price",
+            "Plot Width (px)": "500"
+          }
+        }
+      ],
+      "title": "Global Carbon Emissions and Price",
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "global mean temperature.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global Temperature",
+            "Plot Width (px)": "500"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "total climate forcing.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Plot Title": "Climate Forcing"
+          }
+        }
+      ],
+      "title": "Global Temperature and Forcing",
+      "description": ""
     }
   ],
   "include_cols": [
