@@ -1,7 +1,8 @@
 #!/bin/bash
 
-#Run this from the terminal with 'nohup ./run_model_AWS.sh &'
-#After running, you can follow the output with 'tail -f nohup.out'
+#For now, this works by simply copy-pasting these lines into terminal.
+#Copy through the comment below, then run the final lines after gcam run
+#completes
 
 # User variables, could make these into inputs
 GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
@@ -28,7 +29,9 @@ make xml
 cd exe/
 
 GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
-./gcam.exe -C ${GCAM_CONFIG}.xml
+nohup ./gcam.exe -C ${GCAM_CONFIG}.xml & #nohup before and & after to run in background
+
+#RUN FROM TOP THROUGH THIS LINE (monitor run with 'tail -f logs/main_log.txt'), THEN RUN THE FOLLOWING
 
 XMLDB=xmldb_batch #This .xml file must be present in exe/
 CLASSPATH=/home/ec2-user/GcamLibraries/jars-6*:/home/ec2-user/ModelInterface-v6/ModelInterface.jar
