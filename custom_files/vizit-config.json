@@ -188,8 +188,8 @@
               "x": "year",
               "name": "subsector",
               "col": "scen_name",
-              "y": "value",
-              "explode": "region"
+              "explode": "region",
+              "y": "value"
             }
           ],
           "style": {
@@ -290,8 +290,8 @@
   ],
   "filter": {
     "year": {
-      "filter_type": "greater-or-equal",
-      "filter_val": "2020"
+      "filter_type": "between-inclusive",
+      "filter_val": "2020,2050"
     }
   }
 }
