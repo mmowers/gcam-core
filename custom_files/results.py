@@ -2,10 +2,10 @@ import pandas as pd
 from pdb import set_trace as b
 import os
 
-results_folder = '/home/mmowers/GCAM/run_results_2023-03-07'
-outputs_folder = f'{results_folder}/csv_results_lowshare'
+results_folder = '/home/mmowers/GCAM/run_results/plcoe-vs-core_2023-04-17'
+outputs_folder = f'{results_folder}/csv_results'
 os.mkdir(outputs_folder)
-scens = ['ref_plcoe_lowshare','lowcarb_plcoe_lowshare']
+scens = ['ref_core','ref_plcoe','tax_core','tax_plcoe']
 filters = {
     'inputs by tech': {'sector':['electricity']},
     'prices of all markets': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
