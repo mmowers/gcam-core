@@ -6,12 +6,23 @@ results_folder = '/home/mmowers/GCAM/run_results/plcoe-vs-core_2023-04-17'
 outputs_folder = f'{results_folder}/csv_results'
 os.mkdir(outputs_folder)
 scens = ['ref_core','ref_plcoe','tax_core','tax_plcoe']
+ignore_results = [
+    'CO2 emissions by sector',
+    'elec gen by gen tech and cooling tech (new)',
+    'inputs by tech',
+    'prices of all markets',
+]
 filters = {
     'inputs by tech': {'sector':['electricity']},
     'prices of all markets': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
-    'costs by tech and input': {'sector':['electricity']},
-    'elec gen costs by tech': {'sector':['electricity']},
+    'costs by tech and input': {'sector':['electricity'], 'region':['USA']},
+    'elec gen costs by tech': {'sector':['electricity'],  'region':['USA']},
+    'elec gen costs by subsector': {'region':['USA']},
+    "elec share-weights by subsector": {"region":["USA"]},
 }
+
+include_cols = ['scen_name','market','subsector','technology','input','region','year','value','Units']
+
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
 for scen in scens:
     print(f'\nGathering results from {scen}')
@@ -29,7 +40,11 @@ for scen in scens:
         df_res = df.iloc[df_nm.index[i]:df_nm.index[i+1],:].copy()
         #Find name of table and add it if it doesn't already exist
         name = df_res.iloc[0,0]
-        print(name)
+        if name in ignore_results:
+            print(f'ignoring {name}')
+            continue
+        else:
+            print(f'processing {name}')
         if name not in concat_dct:
             concat_dct[name] = []
         #Remove first row (with just the name)
@@ -54,6 +69,9 @@ for scen in scens:
         #melt the years
         id_vars = [c for c in df_res.columns if not c.isnumeric()]
         df_res = pd.melt(df_res, id_vars=id_vars, var_name='year', value_name='value')
+        #include only columns in include_cols
+        cols = [c for c in include_cols if c in df_res.columns]
+        df_res = df_res[cols].copy()
         concat_dct[name].append(df_res)
 
 print('\nOutputting results')

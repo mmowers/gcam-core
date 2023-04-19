@@ -1,17 +1,13 @@
 {
   "fileNames": [
     "CO2 emissions by region.csv",
-    "CO2 emissions by sector.csv",
     "CO2 prices.csv",
     "costs by tech and input.csv",
     "elec gen by gen tech.csv",
     "elec gen costs by subsector.csv",
-    "elec gen by gen tech and cooling tech (new).csv",
     "elec gen costs by tech.csv",
     "elec share-weights by subsector.csv",
     "global mean temperature.csv",
-    "inputs by tech.csv",
-    "prices of all markets.csv",
     "total climate forcing.csv"
   ],
   "dashboards": [
@@ -238,6 +234,7 @@
               "x": "year",
               "name": "scen_name",
               "row": "Units",
+              "col": "market",
               "y": "value"
             }
           ],
@@ -290,17 +287,6 @@
       "title": "Global Temperature and Forcing",
       "description": ""
     }
-  ],
-  "include_cols": [
-    "year",
-    "subsector",
-    "Units",
-    "value",
-    "scen_name",
-    "region",
-    "technology",
-    "input",
-    "market"
   ],
   "filter": {
     "year": {
