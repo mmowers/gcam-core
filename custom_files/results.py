@@ -1,11 +1,16 @@
 import pandas as pd
 from pdb import set_trace as b
 import os
+import shutil
+
+this_dir_path = os.path.dirname(os.path.realpath(__file__))
 
 results_folder = '/home/mmowers/GCAM/run_results/plcoe-vs-core_2023-04-17'
-outputs_folder = f'{results_folder}/csv_results'
+outputs_folder = f'{results_folder}/csv_results' #must not exist
 os.mkdir(outputs_folder)
-scens = ['ref_core','ref_plcoe','tax_core','tax_plcoe']
+shutil.copy2(f'{this_dir_path}/vizit-config.json',outputs_folder)
+shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
+scens = ['ref_core','ref_plcoe','2p6_core','2p6_plcoe']
 ignore_results = [
     'CO2 emissions by sector',
     'elec gen by gen tech and cooling tech (new)',
