@@ -30,7 +30,53 @@
           "style": {
             "Plot Width (px)": "1000",
             "Plot Height (px)": "400",
-            "Plot Title": "World"
+            "Plot Title": "Global Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name",
+              "col": "subsector",
+              "row": "Units"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1200",
+            "Plot Height (px)": "400",
+            "Plot Title": "Global Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name",
+              "row": "Units",
+              "filter": {
+                "subsector": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              }
+            }
+          ],
+          "style": {
+            "Plot Title": "Global VRE Generation",
+            "Plot Width (px)": "500"
           }
         },
         {
@@ -55,7 +101,63 @@
           "style": {
             "Plot Width (px)": "1000",
             "Plot Height (px)": "400",
-            "Plot Title": "USA"
+            "Plot Title": "USA Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                }
+              },
+              "x": "year",
+              "y": "value",
+              "name": "scen_name",
+              "col": "subsector",
+              "row": "Units"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1200",
+            "Plot Height (px)": "400",
+            "Plot Title": "USA Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name",
+              "row": "Units",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                },
+                "subsector": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              }
+            }
+          ],
+          "style": {
+            "Plot Title": "USA VRE Generation",
+            "Plot Width (px)": "500"
           }
         }
       ],
@@ -291,7 +393,7 @@
   "filter": {
     "year": {
       "filter_type": "between-inclusive",
-      "filter_val": "2020,2050"
+      "filter_val": "2020,2100"
     }
   }
 }
