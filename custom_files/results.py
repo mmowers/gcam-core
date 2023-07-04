@@ -5,12 +5,12 @@ import shutil
 
 this_dir_path = os.path.dirname(os.path.realpath(__file__))
 
-results_folder = '/home/mmowers/GCAM/run_results/plcoe-vs-core_2023-04-17'
+results_folder = '//nrelnas01/ReEDS/FY22-GCAM-MRM/GCAM-PLCOE-2023-05-30/run_results/plcoe-vs-core_2023-04-17'
 outputs_folder = f'{results_folder}/csv_results' #must not exist
 os.mkdir(outputs_folder)
 shutil.copy2(f'{this_dir_path}/vizit-config.json',outputs_folder)
 shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
-scens = ['ref_core','ref_plcoe','2p6_core','2p6_plcoe']
+scens = ['ref_core','ref_plcoe','2p6_core','2p6_plcoe', 'ref_sw_core','ref_sw_plcoe','2p6_sw_core','2p6_sw_plcoe']
 ignore_results = [
     'CO2 emissions by sector',
     'elec gen by gen tech and cooling tech (new)',
@@ -31,7 +31,7 @@ include_cols = ['scen_name','market','subsector','technology','input','region','
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
 for scen in scens:
     print(f'\nGathering results from {scen}')
-    df = pd.read_csv(f'{results_folder}/queryout_{scen}.csv', header=None, sep='\n')
+    df = pd.read_csv(f'{results_folder}/queryout_{scen}.csv', header=None, sep=r'\n')
     #Remove results that didn't return results
     df = df[0].str.split(',', expand=True) #Unfortunately the raw data has [scenario],[date] in the "scenario" column. See HACK below
     queryError = df[0].str.contains('The query returned no results')
