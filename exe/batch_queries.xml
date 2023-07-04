@@ -170,4 +170,16 @@
                     <comments/>
                 </supplyDemandQuery>
     </aQuery>
+    <aQuery>
+        <all-regions/>
+                <supplyDemandQuery title="elec gen from backup electricity">
+                    <axis1 name="technology">technology</axis1>
+                    <axis2 name="Year">physical-output[@vintage]</axis2>
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='backup_electricity')]/
+               *[@type='subsector']/*[@type='technology']/
+               *[@type='output']/
+               physical-output/node()</xPath>
+                    <comments/>
+                </supplyDemandQuery>
+    </aQuery>
 </queries>
