@@ -5,8 +5,8 @@
 # Column types: cccccnn 
 # ----------
 supplysector,subsector,intermittent.technology,electric.sector.name,trial.market.name,value.factor.intercept,value.factor.slope
-electricity,wind,wind,electricity,wind,0.866,-0.951
-electricity,solar,PV,electricity,solar,0.893,-1.334
-electricity,solar,CSP,electricity,solar,0.893,-1.334
-elect_td_bld,rooftop_pv,rooftop_pv,electricity,solar,0.893,-1.334
+electricity,wind,wind,electricity,wind,0.91,-1.2
+electricity,solar,PV,electricity,solar,0.972,-1.443
+electricity,solar,CSP,electricity,solar,0.972,-1.443
+elect_td_bld,rooftop_pv,rooftop_pv,electricity,solar,0.972,-1.443
 electricity,wind,wind_offshore,electricity,wind_offshore,0.946,-1.661
