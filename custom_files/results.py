@@ -10,7 +10,7 @@ outputs_folder = f'{results_folder}/csv_results' #must not exist
 os.mkdir(outputs_folder)
 shutil.copy2(f'{this_dir_path}/vizit-config.json',outputs_folder)
 shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
-scens = ['ref_core','ref_plcoe','2p6_core','2p6_plcoe', 'ref_sw_core','ref_sw_plcoe','2p6_sw_core','2p6_sw_plcoe']
+scens = ['core_ref','plcoe_ref','core_2p6','plcoe_2p6', 'core_ref_le10','plcoe_ref_le10','core_2p6_le10','plcoe_2p6_le10']
 ignore_results = [
     'CO2 emissions by sector',
     'elec gen by gen tech and cooling tech (new)',
