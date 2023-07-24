@@ -3,13 +3,15 @@
     "CO2 emissions by region.csv",
     "CO2 prices.csv",
     "costs by tech and input.csv",
+    "elec gen by gen tech and cooling tech (new).csv",
     "elec gen by gen tech.csv",
-    "elec gen costs by subsector.csv",
     "elec gen costs by tech.csv",
     "elec share-weights by subsector.csv",
     "global mean temperature.csv",
-    "total climate forcing.csv"
+    "total climate forcing.csv",
+    "scenario_styles.csv"
   ],
+  "globalStyleFile": "scenario_styles.csv",
   "dashboards": [
     {
       "charts": [
@@ -169,32 +171,6 @@
         {
           "traces": [
             {
-              "dataSource": "elec gen costs by subsector.csv",
-              "type": "line dot",
-              "agg": "sum",
-              "filter": {
-                "region": {
-                  "filter_type": "select",
-                  "filter_val": "USA"
-                }
-              },
-              "x": "year",
-              "name": "subsector",
-              "row": "Units",
-              "col": "scen_name",
-              "explode": "region",
-              "y": "value"
-            }
-          ],
-          "style": {
-            "Y Max": "15",
-            "Y Min": "0",
-            "Plot Width (px)": "1000"
-          }
-        },
-        {
-          "traces": [
-            {
               "dataSource": "elec gen costs by tech.csv",
               "type": "line dot",
               "agg": "sum",
@@ -228,45 +204,6 @@
             "Y Max": "15",
             "Y Min": "0",
             "Plot Width (px)": "1000"
-          }
-        },
-        {
-          "traces": [
-            {
-              "dataSource": "costs by tech and input.csv",
-              "type": "bar",
-              "agg": "sum",
-              "filter": {
-                "technology": {
-                  "filter_type": "include",
-                  "filter_val": [
-                    "Gen_III",
-                    "PV",
-                    "coal (IGCC)",
-                    "coal (conv pul)",
-                    "gas (CC CCS)",
-                    "gas (CC)",
-                    "wind"
-                  ]
-                },
-                "region": {
-                  "filter_type": "include",
-                  "filter_val": [
-                    "USA"
-                  ]
-                }
-              },
-              "x": "year",
-              "name": "input",
-              "row": "scen_name",
-              "col": "technology",
-              "explode": "region",
-              "y": "value"
-            }
-          ],
-          "style": {
-            "Plot Width (px)": "1100",
-            "Plot Height (px)": "600"
           }
         }
       ],

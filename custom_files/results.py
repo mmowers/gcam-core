@@ -5,15 +5,16 @@ import shutil
 
 this_dir_path = os.path.dirname(os.path.realpath(__file__))
 
-results_folder = '//nrelnas01/ReEDS/FY22-GCAM-MRM/GCAM-PLCOE-2023-05-30/run_results/plcoe-vs-core_2023-04-17'
-outputs_folder = f'{results_folder}/csv_results' #must not exist
-os.mkdir(outputs_folder)
+base_folder = '//nrelnas01/ReEDS/FY22-GCAM-MRM/GCAM-PLCOE-2023-05-30'
+outputs_folder = f'{base_folder}/reports/csv_results' #must not exist
+
+os.mkdir(outputs_folder) #Will throw an error if outputs_folder already exists
+shutil.copy2(f'{this_dir_path}/scenario_styles.csv',outputs_folder)
 shutil.copy2(f'{this_dir_path}/vizit-config.json',outputs_folder)
 shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
-scens = ['core_ref','plcoe_ref','core_2p6','plcoe_2p6', 'core_ref_le10','plcoe_ref_le10','core_2p6_le10','plcoe_2p6_le10']
+scens = pd.read_csv(f'{this_dir_path}/scenario_styles.csv')
 ignore_results = [
     'CO2 emissions by sector',
-    'elec gen by gen tech and cooling tech (new)',
     'inputs by tech',
     'prices of all markets',
 ]
@@ -22,16 +23,16 @@ filters = {
     'prices of all markets': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
     'costs by tech and input': {'sector':['electricity'], 'region':['USA']},
     'elec gen costs by tech': {'sector':['electricity'],  'region':['USA']},
-    'elec gen costs by subsector': {'region':['USA']},
-    "elec share-weights by subsector": {"region":["USA"]},
+    'elec gen by gen tech and cooling tech (new)': {'sector':['electricity']},
+    # "elec share-weights by subsector": {"region":["USA"]},
 }
 
 include_cols = ['scen_name','market','subsector','technology','input','region','year','value','Units']
 
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
-for scen in scens:
-    print(f'\nGathering results from {scen}')
-    df = pd.read_csv(f'{results_folder}/queryout_{scen}.csv', header=None, sep=r'\n')
+for index, scen in scens.iterrows():
+    print(f'\nGathering results from {scen.column_value}')
+    df = pd.read_csv(f'{scen.path}/queryout.csv', header=None, sep=r'\n')
     #Remove results that didn't return results
     df = df[0].str.split(',', expand=True) #Unfortunately the raw data has [scenario],[date] in the "scenario" column. See HACK below
     queryError = df[0].str.contains('The query returned no results')
@@ -70,7 +71,7 @@ for scen in scens:
             for key,val in filters[name].items():
                 df_res = df_res[df_res[key].isin(val)].copy()
         #Add the scenario name we'll be using in outputs
-        df_res['scen_name'] = scen
+        df_res['scen_name'] = scen.column_value
         #melt the years
         id_vars = [c for c in df_res.columns if not c.isnumeric()]
         df_res = pd.melt(df_res, id_vars=id_vars, var_name='year', value_name='value')
