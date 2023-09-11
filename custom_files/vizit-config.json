@@ -11,7 +11,6 @@
     "total climate forcing.csv",
     "scenario_styles.csv"
   ],
-  "globalStyleFile": "scenario_styles.csv",
   "dashboards": [
     {
       "charts": [
@@ -24,15 +23,16 @@
               "filter": {},
               "x": "year",
               "name": "subsector",
-              "row": "Units",
-              "col": "scen_name",
+              "row": "policy",
+              "col": "version",
               "y": "value"
             }
           ],
           "style": {
             "Plot Width (px)": "1000",
             "Plot Height (px)": "400",
-            "Plot Title": "Global Electricity Generation"
+            "Plot Title": "Global Electricity Generation",
+            "Y Title": "EJ"
           }
         },
         {
@@ -42,10 +42,10 @@
               "type": "line dot",
               "agg": "sum",
               "x": "year",
-              "y": "value",
               "name": "scen_name",
               "col": "subsector",
-              "row": "Units"
+              "row": "Units",
+              "y": "value"
             }
           ],
           "style": {
@@ -60,10 +60,6 @@
               "dataSource": "elec gen by gen tech.csv",
               "type": "line dot",
               "agg": "sum",
-              "x": "year",
-              "y": "value",
-              "name": "scen_name",
-              "row": "Units",
               "filter": {
                 "subsector": {
                   "filter_type": "include",
@@ -73,7 +69,11 @@
                     "wind"
                   ]
                 }
-              }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value"
             }
           ],
           "style": {
@@ -95,8 +95,8 @@
               },
               "x": "year",
               "name": "subsector",
-              "row": "Units",
-              "col": "scen_name",
+              "row": "policy",
+              "col": "version",
               "y": "value"
             }
           ],
@@ -119,10 +119,10 @@
                 }
               },
               "x": "year",
-              "y": "value",
               "name": "scen_name",
               "col": "subsector",
-              "row": "Units"
+              "row": "Units",
+              "y": "value"
             }
           ],
           "style": {
@@ -137,10 +137,6 @@
               "dataSource": "elec gen by gen tech.csv",
               "type": "line dot",
               "agg": "sum",
-              "x": "year",
-              "y": "value",
-              "name": "scen_name",
-              "row": "Units",
               "filter": {
                 "region": {
                   "filter_type": "select",
@@ -154,7 +150,11 @@
                     "wind"
                   ]
                 }
-              }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value"
             }
           ],
           "style": {
@@ -327,6 +327,7 @@
       "description": ""
     }
   ],
+  "globalStyleFile": "scenario_styles.csv",
   "filter": {
     "year": {
       "filter_type": "between-inclusive",
