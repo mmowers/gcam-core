@@ -83,5 +83,24 @@ for index, scen in scens.iterrows():
 print('\nOutputting results')
 for name in concat_dct:
     print(f'Outputting {name}')
-    output = pd.concat(concat_dct[name], ignore_index=True)
-    output.to_csv(f'{outputs_folder}/{name}.csv', index=False)
+    df = pd.concat(concat_dct[name], ignore_index=True)
+    val_col = 'value'
+    df['value'] = pd.to_numeric(df['value'])
+    idx_cols = [c for c in df if c not in [val_col, 'scen_name']]
+
+    #Add scenario component columns
+    df[['version','policy']] = df['scen_name'].str.split(expand=True)
+    #Find differences from Core
+    df_ref = df[df['version'] == 'core'].copy()
+    df_ref = df_ref[['policy'] + idx_cols + [val_col]].copy()
+    df_ref = df_ref.rename(columns={val_col: f'{val_col} Core'})
+    df = df.merge(df_ref, how='outer', on=['policy'] + idx_cols)
+    df[[val_col, f'{val_col} Core']] = df[[val_col, f'{val_col} Core']].fillna(0)
+
+    df[f'{val_col} Diff with Core'] = df[val_col] - df[f'{val_col} Core']
+    df[f'{val_col} % Diff with Core'] = 100 * df[f'{val_col} Diff with Core'] / df[f'{val_col} Core']
+    val_cols = [val_col,f'{val_col} Diff with Core',f'{val_col} % Diff with Core']
+    out_cols = ['scen_name','version','policy'] + idx_cols + val_cols
+    df = df[out_cols].copy()
+
+    df.to_csv(f'{outputs_folder}/{name}.csv', index=False)
