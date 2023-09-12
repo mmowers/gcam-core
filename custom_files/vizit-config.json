@@ -39,6 +39,27 @@
           "traces": [
             {
               "dataSource": "elec gen by gen tech.csv",
+              "type": "bar",
+              "agg": "sum",
+              "filter": {},
+              "x": "year",
+              "name": "subsector",
+              "row": "policy",
+              "col": "version",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1000",
+            "Plot Height (px)": "400",
+            "Plot Title": "Global Electricity Generation",
+            "Y Title": "EJ"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
               "type": "line dot",
               "agg": "sum",
               "x": "year",
@@ -46,6 +67,25 @@
               "col": "subsector",
               "row": "Units",
               "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1200",
+            "Plot Height (px)": "400",
+            "Plot Title": "Global Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "col": "subsector",
+              "row": "Units",
+              "y": "value Diff with Core"
             }
           ],
           "style": {
@@ -85,6 +125,33 @@
           "traces": [
             {
               "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "subsector": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global VRE Generation",
+            "Plot Width (px)": "500"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
               "type": "bar",
               "agg": "sum",
               "filter": {
@@ -98,6 +165,31 @@
               "row": "policy",
               "col": "version",
               "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1000",
+            "Plot Height (px)": "400",
+            "Plot Title": "USA Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "bar",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                }
+              },
+              "x": "year",
+              "name": "subsector",
+              "row": "policy",
+              "col": "version",
+              "y": "value Diff with Core"
             }
           ],
           "style": {
@@ -141,6 +233,31 @@
                 "region": {
                   "filter_type": "select",
                   "filter_val": "USA"
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "col": "subsector",
+              "row": "Units",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1200",
+            "Plot Height (px)": "400",
+            "Plot Title": "USA Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
                 },
                 "subsector": {
                   "filter_type": "include",
@@ -155,6 +272,37 @@
               "name": "scen_name",
               "row": "Units",
               "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Title": "USA VRE Generation",
+            "Plot Width (px)": "500"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                },
+                "subsector": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value Diff with Core"
             }
           ],
           "style": {
@@ -205,6 +353,44 @@
             "Y Min": "0",
             "Plot Width (px)": "1000"
           }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen costs by tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                },
+                "technology": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "Gen_III",
+                    "PV",
+                    "coal (IGCC)",
+                    "coal (conv pul)",
+                    "gas (CC CCS)",
+                    "gas (CC)",
+                    "wind"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "col": "technology",
+              "explode": "region",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Y Max": "15",
+            "Y Min": "0",
+            "Plot Width (px)": "1000"
+          }
         }
       ],
       "title": "Costs by Tech",
@@ -226,9 +412,34 @@
               },
               "x": "year",
               "name": "subsector",
-              "col": "scen_name",
+              "col": "version",
               "explode": "region",
+              "row": "policy",
               "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1000"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec share-weights by subsector.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                }
+              },
+              "x": "year",
+              "name": "subsector",
+              "col": "version",
+              "explode": "region",
+              "row": "policy",
+              "y": "value Diff with Core"
             }
           ],
           "style": {
@@ -261,6 +472,23 @@
         {
           "traces": [
             {
+              "dataSource": "CO2 emissions by region.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Plot Title": "Global CO2 Emissions"
+          }
+        },
+        {
+          "traces": [
+            {
               "dataSource": "CO2 prices.csv",
               "type": "line dot",
               "agg": "sum",
@@ -275,6 +503,30 @@
               "row": "Units",
               "col": "market",
               "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Title": "Carbon Price",
+            "Plot Width (px)": "500"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "CO2 prices.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "market": {
+                  "filter_type": "select",
+                  "filter_val": "USACO2"
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "col": "market",
+              "y": "value Diff with Core"
             }
           ],
           "style": {
@@ -308,6 +560,23 @@
         {
           "traces": [
             {
+              "dataSource": "global mean temperature.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global Temperature",
+            "Plot Width (px)": "500"
+          }
+        },
+        {
+          "traces": [
+            {
               "dataSource": "total climate forcing.csv",
               "type": "line dot",
               "agg": "sum",
@@ -315,6 +584,23 @@
               "name": "scen_name",
               "row": "Units",
               "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Plot Title": "Climate Forcing"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "total climate forcing.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "row": "Units",
+              "y": "value Diff with Core"
             }
           ],
           "style": {
