@@ -52,6 +52,25 @@
           "style": {
             "Plot Width (px)": "1000",
             "Plot Height (px)": "400",
+            "Plot Title": "Global Electricity Generation Difference from Core",
+            "Y Title": "EJ"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "name": "scen_name",
+              "col": "subsector",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1200",
+            "Plot Height (px)": "400",
             "Plot Title": "Global Electricity Generation",
             "Y Title": "EJ"
           }
@@ -65,33 +84,14 @@
               "x": "year",
               "name": "scen_name",
               "col": "subsector",
-              "row": "Units",
-              "y": "value"
-            }
-          ],
-          "style": {
-            "Plot Width (px)": "1200",
-            "Plot Height (px)": "400",
-            "Plot Title": "Global Electricity Generation"
-          }
-        },
-        {
-          "traces": [
-            {
-              "dataSource": "elec gen by gen tech.csv",
-              "type": "line dot",
-              "agg": "sum",
-              "x": "year",
-              "name": "scen_name",
-              "col": "subsector",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
             "Plot Width (px)": "1200",
             "Plot Height (px)": "400",
-            "Plot Title": "Global Electricity Generation"
+            "Plot Title": "Global Electricity Generation Difference from Core",
+            "Y Title": "EJ"
           }
         },
         {
@@ -112,13 +112,13 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value"
             }
           ],
           "style": {
             "Plot Title": "Global VRE Generation",
-            "Plot Width (px)": "500"
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
           }
         },
         {
@@ -139,13 +139,13 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
-            "Plot Title": "Global VRE Generation",
-            "Plot Width (px)": "500"
+            "Plot Title": "Global VRE Generation Difference from Core",
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
           }
         },
         {
@@ -170,7 +170,8 @@
           "style": {
             "Plot Width (px)": "1000",
             "Plot Height (px)": "400",
-            "Plot Title": "USA Electricity Generation"
+            "Plot Title": "USA Electricity Generation",
+            "Y Title": "EJ"
           }
         },
         {
@@ -195,7 +196,8 @@
           "style": {
             "Plot Width (px)": "1000",
             "Plot Height (px)": "400",
-            "Plot Title": "USA Electricity Generation"
+            "Plot Title": "USA Electricity Generation Difference from Core",
+            "Y Title": "EJ"
           }
         },
         {
@@ -213,14 +215,14 @@
               "x": "year",
               "name": "scen_name",
               "col": "subsector",
-              "row": "Units",
               "y": "value"
             }
           ],
           "style": {
             "Plot Width (px)": "1200",
             "Plot Height (px)": "400",
-            "Plot Title": "USA Electricity Generation"
+            "Plot Title": "USA Electricity Generation",
+            "Y Title": "EJ"
           }
         },
         {
@@ -238,14 +240,14 @@
               "x": "year",
               "name": "scen_name",
               "col": "subsector",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
             "Plot Width (px)": "1200",
             "Plot Height (px)": "400",
-            "Plot Title": "USA Electricity Generation"
+            "Plot Title": "USA Electricity Generation Difference from Core",
+            "Y Title": "EJ"
           }
         },
         {
@@ -270,13 +272,13 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value"
             }
           ],
           "style": {
             "Plot Title": "USA VRE Generation",
-            "Plot Width (px)": "500"
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
           }
         },
         {
@@ -301,13 +303,13 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
-            "Plot Title": "USA VRE Generation",
-            "Plot Width (px)": "500"
+            "Plot Title": "USA VRE Generation Difference from Core",
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
           }
         }
       ],
@@ -342,7 +344,6 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "col": "technology",
               "explode": "region",
               "y": "value"
@@ -351,7 +352,9 @@
           "style": {
             "Y Max": "15",
             "Y Min": "0",
-            "Plot Width (px)": "1000"
+            "Plot Width (px)": "1000",
+            "Y Title": "1975$/GJ",
+            "Plot Title": "Technology Costs"
           }
         },
         {
@@ -380,16 +383,15 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "col": "technology",
               "explode": "region",
               "y": "value Diff with Core"
             }
           ],
           "style": {
-            "Y Max": "15",
-            "Y Min": "0",
-            "Plot Width (px)": "1000"
+            "Plot Width (px)": "1000",
+            "Y Title": "1975$/GJ",
+            "Plot Title": "Technology Costs Difference from Core"
           }
         }
       ],
@@ -419,7 +421,9 @@
             }
           ],
           "style": {
-            "Plot Width (px)": "1000"
+            "Plot Width (px)": "1000",
+            "Y Title": "share weight",
+            "Plot Title": "Share weights"
           }
         },
         {
@@ -443,7 +447,9 @@
             }
           ],
           "style": {
-            "Plot Width (px)": "1000"
+            "Plot Width (px)": "1000",
+            "Plot Title": "Share weights Difference from Core",
+            "Y Title": "share weight"
           }
         }
       ],
@@ -460,13 +466,13 @@
               "agg": "sum",
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value"
             }
           ],
           "style": {
             "Plot Width (px)": "500",
-            "Plot Title": "Global CO2 Emissions"
+            "Plot Title": "Global CO2 Emissions",
+            "Y Title": "MTC"
           }
         },
         {
@@ -477,13 +483,13 @@
               "agg": "sum",
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
             "Plot Width (px)": "500",
-            "Plot Title": "Global CO2 Emissions"
+            "Plot Title": "Global CO2 Emissions Difference from Core",
+            "Y Title": "MTC"
           }
         },
         {
@@ -500,14 +506,13 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
-              "col": "market",
               "y": "value"
             }
           ],
           "style": {
             "Plot Title": "Carbon Price",
-            "Plot Width (px)": "500"
+            "Plot Width (px)": "500",
+            "Y Title": "1990$/tC"
           }
         },
         {
@@ -524,14 +529,13 @@
               },
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
-              "col": "market",
               "y": "value Diff with Core"
             }
           ],
           "style": {
-            "Plot Title": "Carbon Price",
-            "Plot Width (px)": "500"
+            "Plot Title": "Carbon Price Difference from Core",
+            "Plot Width (px)": "500",
+            "Y Title": "1990$/tC"
           }
         }
       ],
@@ -548,13 +552,13 @@
               "agg": "sum",
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value"
             }
           ],
           "style": {
             "Plot Title": "Global Temperature",
-            "Plot Width (px)": "500"
+            "Plot Width (px)": "500",
+            "Y Title": "degrees Celsius"
           }
         },
         {
@@ -565,13 +569,13 @@
               "agg": "sum",
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
-            "Plot Title": "Global Temperature",
-            "Plot Width (px)": "500"
+            "Plot Title": "Global Temperature Difference from Core",
+            "Plot Width (px)": "500",
+            "Y Title": "degrees Celsius"
           }
         },
         {
@@ -582,13 +586,13 @@
               "agg": "sum",
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value"
             }
           ],
           "style": {
             "Plot Width (px)": "500",
-            "Plot Title": "Climate Forcing"
+            "Plot Title": "Climate Forcing",
+            "Y Title": "W/m^2"
           }
         },
         {
@@ -599,13 +603,13 @@
               "agg": "sum",
               "x": "year",
               "name": "scen_name",
-              "row": "Units",
               "y": "value Diff with Core"
             }
           ],
           "style": {
             "Plot Width (px)": "500",
-            "Plot Title": "Climate Forcing"
+            "Plot Title": "Climate Forcing Difference from Core",
+            "Y Title": "W/m^2"
           }
         }
       ],
