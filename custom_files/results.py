@@ -103,4 +103,10 @@ for name in concat_dct:
     out_cols = ['scen_name','version','policy'] + idx_cols + val_cols
     df = df[out_cols].copy()
 
+    if name == 'elec gen by gen tech':
+        #Add fraction of total global generation.
+        df_tot = df.groupby(['scen_name','year'])['value'].sum().reset_index().rename(columns={'value':'val_tot'})
+        df = df.merge(df_tot, on=['scen_name','year'], how='left')
+        df['val_frac'] = df['value']/df['val_tot']
+
     df.to_csv(f'{outputs_folder}/{name}.csv', index=False)

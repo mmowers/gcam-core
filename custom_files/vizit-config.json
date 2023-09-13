@@ -152,6 +152,33 @@
           "traces": [
             {
               "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "subsector": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "y": "val_frac"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global VRE Generation Fraction",
+            "Plot Width (px)": "500",
+            "Y Title": "Generation Fraction"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
               "type": "bar",
               "agg": "sum",
               "filter": {
