@@ -116,7 +116,7 @@
             }
           ],
           "style": {
-            "Plot Title": "Global VRE Generation",
+            "Plot Title": "Global Wind+Solar Generation",
             "Plot Width (px)": "500",
             "Y Title": "EJ"
           }
@@ -143,7 +143,7 @@
             }
           ],
           "style": {
-            "Plot Title": "Global VRE Generation Difference from Core",
+            "Plot Title": "Global Wind+Solar Generation Difference from Core",
             "Plot Width (px)": "500",
             "Y Title": "EJ"
           }
@@ -170,7 +170,7 @@
             }
           ],
           "style": {
-            "Plot Title": "Global VRE Generation Fraction",
+            "Plot Title": "Global Wind+Solar Generation Fraction",
             "Plot Width (px)": "500",
             "Y Title": "Generation Fraction"
           }
@@ -303,7 +303,7 @@
             }
           ],
           "style": {
-            "Plot Title": "USA VRE Generation",
+            "Plot Title": "USA Wind+Solar Generation",
             "Plot Width (px)": "500",
             "Y Title": "EJ"
           }
@@ -334,7 +334,7 @@
             }
           ],
           "style": {
-            "Plot Title": "USA VRE Generation Difference from Core",
+            "Plot Title": "USA Wind+Solar Generation Difference from Core",
             "Plot Width (px)": "500",
             "Y Title": "EJ"
           }
