@@ -27,7 +27,7 @@ export BOOST_INCLUDE=/home/ec2-user/GcamLibraries/boost_1_77_zt1/include
 make gcam -j 12
 git remote add page_fork https://github.com/pkyle/gcam-core.git
 git fetch page_fork gpk/bugfix/gcam7_limitsfix
-git merge FETCH_HEAD
+git merge FETCH_HEAD --no-edit
 make xml
 cd exe/
 
