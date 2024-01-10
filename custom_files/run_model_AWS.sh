@@ -6,11 +6,11 @@
 
 # User variables, could make these into inputs
 GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
-GIT_BRANCH=core_run
+GIT_BRANCH=core_v7_run
 
 git clone -b ${GIT_BRANCH} https://github.com/${GIT_REPO}.git gcam
 cd gcam/cvs/objects/climate/source
-git clone -b gcam-integration https://github.com/JGCRI/hector.git hector
+git clone -b gcam-integrationv3 https://github.com/JGCRI/hector.git hector
 cd /home/ec2-user/gcam
 scl enable gcc-toolset-9 bash
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el8_7.x86_64
@@ -25,6 +25,9 @@ export TBB_LIB=/home/ec2-user/GcamLibraries/tbb/lib
 export BOOST_LIB=/home/ec2-user/GcamLibraries/boost_1_77_zt1/lib
 export BOOST_INCLUDE=/home/ec2-user/GcamLibraries/boost_1_77_zt1/include
 make gcam -j 12
+git remote add page_fork https://github.com/pkyle/gcam-core.git
+git fetch page_fork gpk/bugfix/gcam7_limitsfix
+git merge FETCH_HEAD
 make xml
 cd exe/
 
