@@ -9,8 +9,9 @@ GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
 GIT_BRANCH=core_v7_run
 
 git clone -b ${GIT_BRANCH} https://github.com/${GIT_REPO}.git gcam
-cd gcam/cvs/objects/climate/source
-git clone -b gcam-integrationv3 https://github.com/JGCRI/hector.git hector
+cd gcam
+git submodule init cvs/objects/climate/source
+git submodule update cvs/objects/climate/source
 cd /home/ec2-user/gcam
 scl enable gcc-toolset-9 bash
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el8_7.x86_64
