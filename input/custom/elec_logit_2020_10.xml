@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="USA">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Africa_Eastern">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Africa_Northern">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Africa_Southern">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Africa_Western">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Australia_NZ">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Brazil">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Canada">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Central America and Caribbean">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Central Asia">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="China">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="EU-12">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="EU-15">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Europe_Eastern">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Europe_Non_EU">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="European Free Trade Association">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="India">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Indonesia">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Japan">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Mexico">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Middle East">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Pakistan">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Russia">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="South Africa">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="South America_Northern">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="South America_Southern">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="South Asia">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="South Korea">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Southeast Asia">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Taiwan">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Argentina">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+        <region name="Colombia">
+            <supplysector name="electricity">
+                <output-unit>EJ</output-unit>
+                <input-unit>EJ</input-unit>
+                <price-unit>1975$/GJ</price-unit>
+                <relative-cost-logit>
+                    <logit-exponent fillout="1" year="2020">-10</logit-exponent>
+                </relative-cost-logit>
+            </supplysector>
+        </region>
+    </world>
+</scenario>
