@@ -2,7 +2,8 @@
 
 #For now, this works by simply copy-pasting these lines into terminal.
 #Copy through the comment below, then run the final lines after gcam run
-#completes
+#completes. I tried using nohup ./run_model_AWS_v7.sh & but it failed during
+#compilation, perhaps because of environment differences when using nohup.
 
 # User variables, could make these into inputs
 GIT_REPO=mmowers/gcam-core #must be publicly accessible repo
