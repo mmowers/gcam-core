@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #For now, this works by simply copy-pasting these lines into terminal.
-#Copy through the comment below, then run the final lines after gcam run
-#completes. I tried using nohup ./run_model_AWS_v7.sh & but it failed during
+#I tried using nohup ./run_model_AWS_v7.sh & but it failed during
 #compilation, perhaps because of environment differences when using nohup.
 
 # User variables, could make these into inputs
@@ -33,11 +32,13 @@ make xml
 cd exe/
 
 GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
-nohup ./gcam.exe -C ${GCAM_CONFIG}.xml & #nohup before and & after to run in background
+nohup ./gcam.exe -C ${GCAM_CONFIG}.xml
+wait
+git clone https://github.com/JGCRI/rgcam.git
+mkdir results
+Rscript rgcam_query.R
 
-#RUN FROM TOP THROUGH THIS LINE (monitor run with 'tail -f logs/main_log.txt'), THEN RUN THE FOLLOWING
-
-XMLDB=xmldb_batch #This .xml file must be present in exe/
-CLASSPATH=/home/ec2-user/GcamLibraries/jars-6*:/home/ec2-user/ModelInterface-v6/ModelInterface.jar
-java -cp ${CLASSPATH} ModelInterface/InterfaceMain -b ${XMLDB}.xml
+#XMLDB=xmldb_batch #This .xml file must be present in exe/
+#CLASSPATH=/home/ec2-user/GcamLibraries/jars-6*:/home/ec2-user/ModelInterface-v6/ModelInterface.jar
+#java -cp ${CLASSPATH} ModelInterface/InterfaceMain -b ${XMLDB}.xml
 
