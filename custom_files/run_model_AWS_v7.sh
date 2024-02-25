@@ -32,8 +32,7 @@ make xml
 cd exe/
 
 GCAM_CONFIG=configuration_ref #This .xml file must be present in exe/
-nohup ./gcam.exe -C ${GCAM_CONFIG}.xml
-wait
+./gcam.exe -C ${GCAM_CONFIG}.xml
 git clone https://github.com/JGCRI/rgcam.git
 mkdir results
 Rscript rgcam_query.R
