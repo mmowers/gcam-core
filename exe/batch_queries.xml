@@ -106,15 +106,6 @@
             </marketQuery>
     </aQuery>
     <aQuery>
-        <all-regions/>
-            <supplyDemandQuery title="inputs by tech">
-                <axis1 name="input">input</axis1>
-                <axis2 name="Year">demand-physical[@vintage]</axis2>
-                <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector']/*[@type='subsector']/*[@type='technology']/*[@type='input']/demand-physical/node()</xPath>
-                <comments/>
-            </supplyDemandQuery>
-    </aQuery>
-    <aQuery>
       <region name = "USA"/>
         <ClimateQuery title="total climate forcing">
             <axis1 name="forcing-total">none</axis1>
