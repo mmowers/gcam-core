@@ -362,12 +362,12 @@
                 "technology": {
                   "filter_type": "include",
                   "filter_val": [
-                    "Gen_III",
-                    "PV",
-                    "coal (IGCC)",
                     "coal (conv pul)",
+                    "coal (IGCC)",
                     "gas (CC CCS)",
                     "gas (CC)",
+                    "Gen_III",
+                    "PV",
                     "wind"
                   ]
                 }
@@ -401,12 +401,12 @@
                 "technology": {
                   "filter_type": "include",
                   "filter_val": [
-                    "Gen_III",
-                    "PV",
-                    "coal (IGCC)",
                     "coal (conv pul)",
+                    "coal (IGCC)",
                     "gas (CC CCS)",
                     "gas (CC)",
+                    "Gen_III",
+                    "PV",
                     "wind"
                   ]
                 }
@@ -644,6 +644,38 @@
         }
       ],
       "title": "Global Temperature and Forcing",
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec prices by sector.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                },
+                "fuel": {
+                  "filter_type": "select",
+                  "filter_val": "electricity"
+                }
+              },
+              "explode": "region"
+            }
+          ],
+          "style": {
+            "Y Title": "1975$/GJ"
+          }
+        }
+      ],
+      "title": "Electricity Prices",
       "description": ""
     }
   ],
