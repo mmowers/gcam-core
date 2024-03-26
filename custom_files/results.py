@@ -13,6 +13,7 @@ outputs_folder = f'{base_folder}/reports/vizit_report' #must not exist
 
 os.mkdir(outputs_folder) #Will throw an error if outputs_folder already exists
 shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
+shutil.copy2(f'{this_dir_path}/scenario_styles.csv',outputs_folder)
 scens = pd.read_csv(f'{this_dir_path}/scenario_styles.csv')
 ignore_results = [
     'CO2 emissions by sector.csv',
