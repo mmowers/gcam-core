@@ -1,7 +1,7 @@
 column_name,column_value,color,path
-scen_name,core ref,#1f77b4,\\nrelnas01\ReEDS\FY22-GCAM-MRM\GCAM-PLCOE-2023-05-30\runs_2024-03-06\core_v7
-scen_name,plcoe ref,#ff7f0e,\\nrelnas01\ReEDS\FY22-GCAM-MRM\GCAM-PLCOE-2023-05-30\runs_2024-03-06\plcoe_v7
-scen_name,plcoe_sw ref,#2ca02c,\\nrelnas01\ReEDS\FY22-GCAM-MRM\GCAM-PLCOE-2023-05-30\runs_2024-03-06\plcoe_vre-sw
-scen_name,core 2p6,#aec7e8,\\nrelnas01\ReEDS\FY22-GCAM-MRM\GCAM-PLCOE-2023-05-30\runs_2024-03-06\core_2p6
-scen_name,plcoe  2p6,#ffbb78,\\nrelnas01\ReEDS\FY22-GCAM-MRM\GCAM-PLCOE-2023-05-30\runs_2024-03-06\plcoe_2p6
-scen_name,plcoe_sw 2p6,#98df8a,\\nrelnas01\ReEDS\FY22-GCAM-MRM\GCAM-PLCOE-2023-05-30\runs_2024-03-06\plcoe_2p6_vre-sw
+scen_name,core ref,#1f77b4,/home/mmowers/GCAM/runs_2024-03-06/core_ref
+scen_name,plcoe ref,#ff7f0e,/home/mmowers/GCAM/runs_2024-03-06/plcoe_ref
+scen_name,plcoe_sw ref,#2ca02c,/home/mmowers/GCAM/runs_2024-03-06/plcoe_vre-sw_ref
+scen_name,core 4p5,#aec7e8,/home/mmowers/GCAM/runs_2024-03-06/core_policy
+scen_name,plcoe 4p5,#ffbb78,/home/mmowers/GCAM/runs_2024-03-06/plcoe_policy
+scen_name,plcoe_sw 4p5,#98df8a,/home/mmowers/GCAM/runs_2024-03-06/plcoe_vre-sw_policy

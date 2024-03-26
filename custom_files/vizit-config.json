@@ -6,8 +6,11 @@
     "elec gen by gen tech and cooling tech (new).csv",
     "elec gen by gen tech.csv",
     "elec gen costs by tech.csv",
+    "elec gen from backup electricity.csv",
+    "elec prices by sector.csv",
     "elec share-weights by subsector.csv",
     "global mean temperature.csv",
+    "outputs by tech.csv",
     "total climate forcing.csv",
     "scenario_styles.csv"
   ],

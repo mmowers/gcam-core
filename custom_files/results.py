@@ -4,11 +4,12 @@ import shutil
 import json
 import requests
 import re
+from pdb import set_trace as b
 
 this_dir_path = os.path.dirname(os.path.realpath(__file__))
 
-base_folder = '//nrelnas01/ReEDS/FY22-GCAM-MRM/GCAM-PLCOE-2023-05-30'
-outputs_folder = f'{base_folder}/reports/csv_results' #must not exist
+base_folder = '/home/mmowers/GCAM'
+outputs_folder = f'{base_folder}/reports/vizit_report' #must not exist
 
 os.mkdir(outputs_folder) #Will throw an error if outputs_folder already exists
 shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
@@ -26,8 +27,6 @@ filters = {
     'elec gen by gen tech and cooling tech (new).csv': {'sector':['electricity']},
     # "elec share-weights by subsector.csv": {"region":["USA"]},
 }
-
-include_cols = ['scen_name','market','subsector','technology','input','region','year','value','Units']
 
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
 for index, scen in scens.iterrows():
