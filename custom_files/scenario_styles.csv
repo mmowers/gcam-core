@@ -2,6 +2,6 @@ column_name,column_value,color,path
 scen_name,core ref,#1f77b4,/home/mmowers/GCAM/runs_2024-03-24/core_ref
 scen_name,plcoe ref,#ff7f0e,/home/mmowers/GCAM/runs_2024-03-24/plcoe_ref
 scen_name,plcoe_sw ref,#2ca02c,/home/mmowers/GCAM/runs_2024-03-24/plcoe_vre-sw_ref
-scen_name,core 4p5,#aec7e8,/home/mmowers/GCAM/runs_2024-03-24/core_policy
-scen_name,plcoe 4p5,#ffbb78,/home/mmowers/GCAM/runs_2024-03-24/plcoe_policy
-scen_name,plcoe_sw 4p5,#98df8a,/home/mmowers/GCAM/runs_2024-03-24/plcoe_vre-sw_policy
+scen_name,core 2p6,#aec7e8,/home/mmowers/GCAM/runs_2024-03-24/core_2p6
+scen_name,plcoe 2p6,#ffbb78,/home/mmowers/GCAM/runs_2024-03-24/plcoe_2p6
+scen_name,plcoe_sw 2p6,#98df8a,/home/mmowers/GCAM/runs_2024-03-24/plcoe_vre-sw_2p6
