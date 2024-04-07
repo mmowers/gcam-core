@@ -107,7 +107,7 @@
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 
 		<Value name="policy_2020">../input/policy/carbon_tax_0_nearterm.xml</Value>
-		<Value name="policy_2025">../input/policy/carbon_tax_2p6.xml</Value>
+		<Value name="policy_2025">../input/policy/carbon_tax_2p6_GCAMv7.xml</Value>
 		<Value name="states_policy">../input/policy/2025_target_finder.xml</Value>
 
 	</ScenarioComponents>
