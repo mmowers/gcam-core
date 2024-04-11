@@ -6,27 +6,38 @@ import requests
 import re
 from pdb import set_trace as b
 
+#user switches
+gcam_version = 'core' #'core' or 'usa'
+output_csvs = False
+base_folder = '/home/mmowers/GCAM/reports' #must exist
+
 this_dir_path = os.path.dirname(os.path.realpath(__file__))
 
-base_folder = '/home/mmowers/GCAM'
-outputs_folder = f'{base_folder}/reports/vizit_report' #must not exist
-
+outputs_folder = f'{base_folder}/vizit_report' #must not exist
 os.mkdir(outputs_folder) #Will throw an error if outputs_folder already exists
 shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
 shutil.copy2(f'{this_dir_path}/scenario_styles.csv',outputs_folder)
 scens = pd.read_csv(f'{this_dir_path}/scenario_styles.csv')
-ignore_results = [
-    'CO2 emissions by sector.csv',
-    'inputs by tech.csv',
-    'prices of all markets.csv',
-]
+ignore_results = {
+    'core': [
+        'CO2 emissions by sector.csv',
+        'inputs by tech.csv',
+        'prices of all markets.csv',
+    ],
+    'usa':[
+    ]
+}
 filters = {
-    'inputs by tech.csv': {'sector':['electricity']},
-    'prices of all markets.csv': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
-    'costs by tech and input.csv': {'sector':['electricity'], 'region':['USA']},
-    'elec gen costs by tech.csv': {'sector':['electricity'],  'region':['USA']},
-    'elec gen by gen tech and cooling tech (new).csv': {'sector':['electricity']},
-    # "elec share-weights by subsector.csv": {"region":["USA"]},
+    'core': {
+        'inputs by tech.csv': {'sector':['electricity']},
+        'prices of all markets.csv': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
+        'costs by tech and input.csv': {'sector':['electricity'], 'region':['USA']},
+        'elec gen costs by tech.csv': {'sector':['electricity'],  'region':['USA']},
+        'elec gen by gen tech and cooling tech (new).csv': {'sector':['electricity']},
+        # "elec share-weights by subsector.csv": {"region":["USA"]},
+    },
+    'usa': {
+    }
 }
 
 concat_dct = {} #key is the name of the output, and value is a list of dataframes to be concatenated (each scenario)
@@ -34,11 +45,11 @@ for index, scen in scens.iterrows():
     print(f'\nGathering results from {scen.column_value}')
     #Loop through csv files in the scenario folder that aren't in ignore_results, filter with filters, add them to concat_dct
     for file in os.listdir(f'{scen.path}/results'):
-        if file.endswith('.csv') and file not in ignore_results:
+        if file.endswith('.csv') and file not in ignore_results[gcam_version]:
             print(f'processing {file}')
             df = pd.read_csv(f'{scen.path}/results/{file}')
-            if file in filters:
-                for key,val in filters[file].items():
+            if file in filters[gcam_version]:
+                for key,val in filters[gcam_version][file].items():
                     df = df[df[key].isin(val)].copy()
             df['scen_name'] = scen.column_value
             if file not in concat_dct:
@@ -78,10 +89,13 @@ for name in concat_dct:
     #Add to data_dict
     data_dict[name] = df.to_dict(orient='list')
 
+    if output_csvs:
+        df.to_csv(f'{outputs_folder}/{name}', index=False)
+
 print('\nOutputting results')
 df_style = scens[['column_name','column_value','color']].copy()
 data_dict['scenario_styles.csv'] = df_style.to_dict(orient='list')
-with open(f'{this_dir_path}/vizit-config.json') as json_file:
+with open(f'{this_dir_path}/vizit-config_{gcam_version}.json') as json_file:
     vizit_config = json.load(json_file)
 vizit_commit = '7011d363e40386264bedb3155629729b225fd22e'
 vizit_url = f'https://raw.githubusercontent.com/mmowers/vizit/{vizit_commit}/index.html'
