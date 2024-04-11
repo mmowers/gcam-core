@@ -1,0 +1,152 @@
+{
+  "fileNames": [
+    "elec energy input by elec gen tech.csv",
+    "elec energy input by subsector.csv",
+    "elec gen by gen tech and cooling tech (incl cogen).csv",
+    "elec gen by region (no CHP).csv",
+    "elec gen by subsector.csv",
+    "elec gen costs by subsector.csv",
+    "elec gen costs by tech.csv",
+    "elec prices by sector.csv",
+    "elec share-weights by cooling tech.csv",
+    "elec share-weights by gen tech.csv",
+    "elec share-weights by subsector.csv",
+    "scenario_styles.csv"
+  ],
+  "dashboards": [
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech and cooling tech (incl cogen).csv",
+              "type": "bar",
+              "agg": "sum",
+              "x": "year",
+              "row": "policy",
+              "col": "version",
+              "name": "subsector...5",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "600"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech and cooling tech (incl cogen).csv",
+              "type": "bar",
+              "agg": "sum",
+              "x": "year",
+              "name": "subsector...5",
+              "row": "policy",
+              "col": "version",
+              "y": "value Diff with Core"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "600"
+          }
+        }
+      ],
+      "title": "Electricity Generation",
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech and cooling tech (incl cogen).csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "subsector...5": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "y": "value"
+            }
+          ]
+        }
+      ],
+      "title": "Wind + Solar Generation",
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec share-weights by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "CA"
+                },
+                "sector": {
+                  "filter_type": "select",
+                  "filter_val": "base load generation"
+                }
+              },
+              "x": "year",
+              "name": "subsector...5",
+              "col": "version",
+              "row": "policy",
+              "y": "value"
+            }
+          ]
+        }
+      ],
+      "title": "Share Weights",
+      "description": ""
+    },
+    {
+      "charts": [
+        {
+          "traces": [
+            {
+              "dataSource": "elec prices by sector.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "filter": {
+                "fuel": {
+                  "filter_type": "select",
+                  "filter_val": "base load generation"
+                },
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "CA"
+                }
+              },
+              "x": "year",
+              "name": "scen_name",
+              "col": "region",
+              "y": "value"
+            }
+          ]
+        }
+      ],
+      "title": "Electricity Prices",
+      "description": ""
+    }
+  ],
+  "globalStyleFile": "scenario_styles.csv",
+  "filter": {
+    "year": {
+      "filter_type": "greater-or-equal",
+      "filter_val": "2020"
+    }
+  }
+}
