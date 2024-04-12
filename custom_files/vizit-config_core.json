@@ -341,6 +341,40 @@
             "Plot Width (px)": "500",
             "Y Title": "EJ"
           }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global Electricity Generation",
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
+              "name": "scen_name"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global Elec Gen Difference from Core",
+            "Y Title": "EJ",
+            "Plot Width (px)": "500"
+          }
         }
       ],
       "title": "Electricity Generation",
@@ -654,8 +688,35 @@
               "dataSource": "elec prices by sector.csv",
               "type": "line dot",
               "agg": "sum",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "USA"
+                },
+                "fuel": {
+                  "filter_type": "select",
+                  "filter_val": "electricity"
+                }
+              },
               "x": "year",
-              "y": "value",
+              "name": "scen_name",
+              "explode": "region",
+              "y": "value"
+            }
+          ],
+          "style": {
+            "Y Title": "1975$/GJ",
+            "Plot Title": "Electricity Prices"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec prices by sector.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
               "name": "scen_name",
               "filter": {
                 "region": {
@@ -671,6 +732,7 @@
             }
           ],
           "style": {
+            "Plot Title": "Electricity Prices Difference from Core",
             "Y Title": "1975$/GJ"
           }
         }
