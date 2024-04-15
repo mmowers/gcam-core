@@ -51,6 +51,9 @@ for index, scen in scens.iterrows():
             if file in filters[gcam_version]:
                 for key,val in filters[gcam_version][file].items():
                     df = df[df[key].isin(val)].copy()
+            #Sort by specified columns
+            sort_cols = [c for c in ['subsector','subsector...5','year'] if c in df]
+            df = df.sort_values(sort_cols)
             df['scen_name'] = scen.column_value
             if file not in concat_dct:
                 concat_dct[file] = []
