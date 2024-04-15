@@ -101,12 +101,15 @@
                 }
               },
               "x": "year",
-              "name": "subsector...5",
+              "name": "subsector...6",
               "col": "version",
               "row": "policy",
               "y": "value"
             }
-          ]
+          ],
+          "style": {
+            "Plot Width (px)": "600"
+          }
         }
       ],
       "title": "Share Weights",
