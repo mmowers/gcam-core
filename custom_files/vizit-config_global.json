@@ -21,6 +21,40 @@
           "traces": [
             {
               "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global Electricity Generation",
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
+              "name": "scen_name"
+            }
+          ],
+          "style": {
+            "Plot Title": "Global Elec Gen Difference from Core",
+            "Y Title": "EJ",
+            "Plot Width (px)": "500"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech.csv",
               "type": "bar",
               "agg": "sum",
               "filter": {},
@@ -340,40 +374,6 @@
             "Plot Title": "USA Wind+Solar Generation Difference from Core",
             "Plot Width (px)": "500",
             "Y Title": "EJ"
-          }
-        },
-        {
-          "traces": [
-            {
-              "dataSource": "elec gen by gen tech.csv",
-              "type": "line dot",
-              "agg": "sum",
-              "x": "year",
-              "y": "value",
-              "name": "scen_name"
-            }
-          ],
-          "style": {
-            "Plot Title": "Global Electricity Generation",
-            "Plot Width (px)": "500",
-            "Y Title": "EJ"
-          }
-        },
-        {
-          "traces": [
-            {
-              "dataSource": "elec gen by gen tech.csv",
-              "type": "line dot",
-              "agg": "sum",
-              "x": "year",
-              "y": "value Diff with Core",
-              "name": "scen_name"
-            }
-          ],
-          "style": {
-            "Plot Title": "Global Elec Gen Difference from Core",
-            "Y Title": "EJ",
-            "Plot Width (px)": "500"
           }
         }
       ],
