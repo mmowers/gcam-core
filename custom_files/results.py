@@ -7,7 +7,6 @@ import re
 from pdb import set_trace as b
 
 #user switches
-gcam_version = 'core' #'core' or 'usa'
 output_csvs = False
 base_folder = '/home/mmowers/GCAM/reports' #must exist
 
@@ -19,7 +18,7 @@ shutil.copy2(f'{this_dir_path}/results.py',outputs_folder)
 shutil.copy2(f'{this_dir_path}/scenario_styles.csv',outputs_folder)
 scens = pd.read_csv(f'{this_dir_path}/scenario_styles.csv')
 ignore_results = {
-    'core': [
+    'global': [
         'CO2 emissions by sector.csv',
         'inputs by tech.csv',
         'prices of all markets.csv',
@@ -28,7 +27,7 @@ ignore_results = {
     ]
 }
 filters = {
-    'core': {
+    'global': {
         'inputs by tech.csv': {'sector':['electricity']},
         'prices of all markets.csv': {'market':['USAwind-trial-supply', 'USAsolar-trial-supply','USAwind_offshore-trial-supply']},
         'costs by tech and input.csv': {'sector':['electricity'], 'region':['USA']},
@@ -44,12 +43,13 @@ concat_dct = {} #key is the name of the output, and value is a list of dataframe
 for index, scen in scens.iterrows():
     print(f'\nGathering results from {scen.column_value}')
     #Loop through csv files in the scenario folder that aren't in ignore_results, filter with filters, add them to concat_dct
+    gcam_scope = scen.gcam_scope
     for file in os.listdir(f'{scen.path}/results'):
-        if file.endswith('.csv') and file not in ignore_results[gcam_version]:
+        if file.endswith('.csv') and file not in ignore_results[gcam_scope]:
             print(f'processing {file}')
             df = pd.read_csv(f'{scen.path}/results/{file}')
-            if file in filters[gcam_version]:
-                for key,val in filters[gcam_version][file].items():
+            if file in filters[gcam_scope]:
+                for key,val in filters[gcam_scope][file].items():
                     df = df[df[key].isin(val)].copy()
             #Sort by specified columns
             sort_cols = [c for c in ['subsector','subsector...5','year'] if c in df]
@@ -98,7 +98,8 @@ for name in concat_dct:
 print('\nOutputting results')
 df_style = scens[['column_name','column_value','color']].copy()
 data_dict['scenario_styles.csv'] = df_style.to_dict(orient='list')
-with open(f'{this_dir_path}/vizit-config_{gcam_version}.json') as json_file:
+with open(f'{this_dir_path}/vizit-config_{gcam_scope}.json') as json_file:
+    #Note that this uses the final gcam_scope defined in the scenarios csv file, but that should be consistent across scenarios.
     vizit_config = json.load(json_file)
 vizit_commit = '7011d363e40386264bedb3155629729b225fd22e'
 vizit_url = f'https://raw.githubusercontent.com/mmowers/vizit/{vizit_commit}/index.html'
