@@ -211,7 +211,14 @@
             "Plot Width (px)": "500",
             "Y Title": "Generation Fraction"
           }
-        },
+        }
+      ],
+      "title": "Global Electricity Generation",
+      "description": ""
+    },
+    {
+      "charts": [
+
         {
           "traces": [
             {
@@ -377,7 +384,7 @@
           }
         }
       ],
-      "title": "Electricity Generation",
+      "title": "USA Electricity Generation",
       "description": ""
     },
     {
@@ -690,8 +697,14 @@
               "agg": "sum",
               "filter": {
                 "region": {
-                  "filter_type": "select",
-                  "filter_val": "USA"
+                  "filter_type": "include",
+                  "filter_val": [
+                    "Africa_Western",
+                    "Brazil",
+                    "China",
+                    "India",
+                    "USA"
+                  ]
                 },
                 "fuel": {
                   "filter_type": "select",
@@ -700,13 +713,14 @@
               },
               "x": "year",
               "name": "scen_name",
-              "explode": "region",
-              "y": "value"
+              "y": "value",
+              "col": "region"
             }
           ],
           "style": {
             "Y Title": "1975$/GJ",
-            "Plot Title": "Electricity Prices"
+            "Plot Title": "Electricity Prices",
+            "Plot Width (px)": "800"
           }
         },
         {
@@ -715,25 +729,32 @@
               "dataSource": "elec prices by sector.csv",
               "type": "line dot",
               "agg": "sum",
-              "x": "year",
-              "y": "value Diff with Core",
-              "name": "scen_name",
               "filter": {
                 "region": {
-                  "filter_type": "select",
-                  "filter_val": "USA"
+                  "filter_type": "include",
+                  "filter_val": [
+                    "Africa_Western",
+                    "Brazil",
+                    "China",
+                    "India",
+                    "USA"
+                  ]
                 },
                 "fuel": {
                   "filter_type": "select",
                   "filter_val": "electricity"
                 }
               },
-              "explode": "region"
+              "x": "year",
+              "name": "scen_name",
+              "y": "value Diff with Core",
+              "col": "region"
             }
           ],
           "style": {
             "Plot Title": "Electricity Prices Difference from Core",
-            "Y Title": "1975$/GJ"
+            "Y Title": "1975$/GJ",
+            "Plot Width (px)": "800"
           }
         }
       ],
