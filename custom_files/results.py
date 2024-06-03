@@ -24,6 +24,13 @@ ignore_results = {
         'prices of all markets.csv',
     ],
     'usa':[
+        'elec gen costs by tech.csv',
+        'elec share-weights by cooling tech.csv',
+        'elec energy input by elec gen tech.csv',
+        'elec energy input by subsector.csv',
+        'elec gen by subsector.csv',
+        'elec share-weights by subsector.csv',
+        'elec gen costs by subsector.csv'
     ]
 }
 filters = {
