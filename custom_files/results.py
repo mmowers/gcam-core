@@ -58,9 +58,6 @@ for index, scen in scens.iterrows():
             if file in filters[gcam_scope]:
                 for key,val in filters[gcam_scope][file].items():
                     df = df[df[key].isin(val)].copy()
-            #Sort by specified columns
-            sort_cols = [c for c in ['subsector','subsector...5','year'] if c in df]
-            df = df.sort_values(sort_cols)
             df['scen_name'] = scen.column_value
             if file not in concat_dct:
                 concat_dct[file] = []
@@ -95,6 +92,10 @@ for name in concat_dct:
         df_tot = df.groupby(['scen_name','year'])['value'].sum().reset_index().rename(columns={'value':'val_tot'})
         df = df.merge(df_tot, on=['scen_name','year'], how='left')
         df['val_frac'] = df['value']/df['val_tot']
+
+    #Sort by specified columns
+    sort_cols = [c for c in ['scen_name','subsector','subsector...5','year'] if c in df]
+    df = df.sort_values(sort_cols)
 
     #Add to data_dict
     data_dict[name] = df.to_dict(orient='list')
