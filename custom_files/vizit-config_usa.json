@@ -30,7 +30,10 @@
             }
           ],
           "style": {
-            "Plot Width (px)": "600"
+            "Plot Width (px)": "1000",
+            "Plot Height (px)": "400",
+            "Plot Title": "GCAM-USA Electricity Generation",
+            "Y Title": "EJ"
           }
         },
         {
@@ -47,7 +50,44 @@
             }
           ],
           "style": {
-            "Plot Width (px)": "600"
+            "Plot Width (px)": "1000",
+            "Plot Height (px)": "400",
+            "Plot Title": "GCAM-USA Electricity Generation Difference from Core",
+            "Y Title": "EJ"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech and cooling tech (incl cogen).csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value",
+              "name": "scen_name"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Y Title": "EJ",
+            "Plot Title": "GCAM-USA Electricity Generation"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech and cooling tech (incl cogen).csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
+              "name": "scen_name"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Y Title": "EJ",
+            "Plot Title": "GCAM-USA Elec Gen Difference from Core"
           }
         }
       ],
@@ -76,7 +116,39 @@
               "name": "scen_name",
               "y": "value"
             }
-          ]
+          ],
+          "style": {
+            "Plot Title": "GCAM-USA Wind + Solar Generation",
+            "Plot Width (px)": "500",
+            "Y Title": "EJ"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec gen by gen tech and cooling tech (incl cogen).csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
+              "name": "scen_name",
+              "filter": {
+                "subsector...5": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "rooftop_pv",
+                    "solar",
+                    "wind"
+                  ]
+                }
+              }
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "500",
+            "Y Title": "EJ",
+            "Plot Title": "GCAM-USA Wind + Solar Difference from Core"
+          }
         }
       ],
       "title": "Wind + Solar Generation",
@@ -104,11 +176,44 @@
               "name": "subsector...6",
               "col": "version",
               "row": "policy",
-              "y": "value"
+              "y": "value",
+              "explode": "region"
             }
           ],
           "style": {
-            "Plot Width (px)": "600"
+            "Plot Width (px)": "1000",
+            "Y Title": "share weight",
+            "Plot Title": "GCAM-USA Share Weights"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec share-weights by gen tech.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
+              "name": "subsector...6",
+              "filter": {
+                "region": {
+                  "filter_type": "select",
+                  "filter_val": "CA"
+                },
+                "sector": {
+                  "filter_type": "select",
+                  "filter_val": "base load generation"
+                }
+              },
+              "row": "policy",
+              "col": "version",
+              "explode": "region"
+            }
+          ],
+          "style": {
+            "Plot Width (px)": "1000",
+            "Y Title": "share weight",
+            "Plot Title": "GCAM-USA Share Weight Difference from Core"
           }
         }
       ],
@@ -129,8 +234,13 @@
                   "filter_val": "base load generation"
                 },
                 "region": {
-                  "filter_type": "select",
-                  "filter_val": "CA"
+                  "filter_type": "include",
+                  "filter_val": [
+                    "CA",
+                    "IA",
+                    "NY",
+                    "TX"
+                  ]
                 }
               },
               "x": "year",
@@ -138,7 +248,47 @@
               "col": "region",
               "y": "value"
             }
-          ]
+          ],
+          "style": {
+            "Y Title": "1975$/GJ",
+            "Plot Title": "GCAM-USA Baseload Electricity Prices",
+            "Plot Width (px)": "800",
+            "Y Min": "0",
+            "Y Max": "10"
+          }
+        },
+        {
+          "traces": [
+            {
+              "dataSource": "elec prices by sector.csv",
+              "type": "line dot",
+              "agg": "sum",
+              "x": "year",
+              "y": "value Diff with Core",
+              "name": "scen_name",
+              "filter": {
+                "fuel": {
+                  "filter_type": "select",
+                  "filter_val": "base load generation"
+                },
+                "region": {
+                  "filter_type": "include",
+                  "filter_val": [
+                    "CA",
+                    "IA",
+                    "NY",
+                    "TX"
+                  ]
+                }
+              },
+              "col": "region"
+            }
+          ],
+          "style": {
+            "Y Title": "1975$/GJ",
+            "Plot Title": "GCAM-USA Baseload Electricity Prices Difference from Core",
+            "Plot Width (px)": "800"
+          }
         }
       ],
       "title": "Electricity Prices",
